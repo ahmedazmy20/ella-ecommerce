@@ -28,7 +28,6 @@
                   <img
                     v-else
                     class="align-center w-75"
-                    lazy="loading"
                     :src="selectedImage ? selectedImage : product.thumbnail"
                     alt=""
                     style="max-height: 300px; object-fit: contain"
@@ -74,7 +73,6 @@
                           :class="`cursor-pointer ${
                             isHovering ? 'bg-grey-lighten-3' : ''
                           } rounded-xl mx-2`"
-                          lazy="loading"
                           :src="img"
                           :alt="img"
                         />
