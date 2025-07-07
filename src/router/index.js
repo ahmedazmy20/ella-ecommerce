@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
+import ProductDetails from "../views/ProductDetails.vue";
+import CartPage from "../views/CartView.vue";
 
 const routes = [
   {
@@ -14,7 +16,7 @@ const routes = [
   {
     path: "/products/product-details/:productId",
     name: "product_details",
-    component: () => import("../views/ProductDetails.vue"),
+    component: ProductDetails,
   },
   {
     path: "/cart-page",
@@ -24,7 +26,7 @@ const routes = [
   {
     path: "/checkout-page",
     name: "checkout_page",
-    component: () => import("../views/CheckoutView.vue"),
+    component: CartPage,
   },
   {
     path: "/:pathMatch(.*)*", // مسك أي مسار مش معروف

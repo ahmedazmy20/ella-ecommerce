@@ -22,7 +22,6 @@
               </v-col>
               <img
                 v-else
-                lazy="loading"
                 width="300"
                 :src="
                   selectedImage ? selectedImage : store.singelProduct.thumbnail
@@ -48,7 +47,6 @@
                       :class="`cursor-pointer ${
                         isHovering ? 'bg-grey-lighten-3' : ''
                       } rounded-xl mx-3`"
-                      lazy="loading"
                       :src="img"
                       :alt="img"
                     />
