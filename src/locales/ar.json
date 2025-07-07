@@ -133,7 +133,8 @@
     "Get-Shipping-Estimate": "احصل على تقدير الشحن",
     "Calculate-Shipping": "حساب الشحن",
     "Tax-checkout": "الضريبه والشحن محسوبه عند الدفع",
-    "Proceed-Checkout": "المتابعه للدفع"
+    "Proceed-Checkout": "المتابعه للدفع",
+    "Add-successfully": "تم اضافه المنتج بنجاح"
   },
   "checkout": {
     "express-checkout": "الدفع السريع",

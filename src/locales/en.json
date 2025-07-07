@@ -133,7 +133,8 @@
     "Get-Shipping-Estimate": "Get Shipping Estimate",
     "Calculate-Shipping": "Calculate Shipping",
     "Tax-checkout": "Tax and shipping calculated at checkout",
-    "Proceed-Checkout": "Proceed to Checkout"
+    "Proceed-Checkout": "Proceed to Checkout",
+    "Add-successfully": "Add to cart successfully"
   },
   "checkout": {
     "express-checkout": "express checkout",

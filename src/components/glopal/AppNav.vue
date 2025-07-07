@@ -214,7 +214,7 @@
 
             <div class="text-center">
               <select
-                v-model="$i18n.locale"
+                v-model="locale"
                 @change="handleLanguageChange"
                 style="
                   width: 100px;
@@ -237,35 +237,38 @@
 </template>
 
 <script setup>
-// import { ref } from "vue";
+import { useI18n } from "vue-i18n";
+import { onMounted } from "vue";
 import { useProductsStore } from "@/stores/products";
 import { useCartStore } from "@/stores/cart";
 import { useRoute } from "vue-router";
 import { inject } from "vue";
-import { useI18n } from "vue-i18n";
-import i18n from "@/i18n";
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 const route = useRoute();
 const cartStore = useCartStore();
 const store = useProductsStore();
 store.loadCategories(t);
 const emitter = inject("emitter");
+
 const openCart = () => {
   emitter?.emit("openCartDrawer");
 };
+
 const openNav = () => {
   emitter?.emit("openNavDrawer");
 };
-function handleLanguageChange() {
-  localStorage.setItem("language", i18n.locale);
 
-  // لو بتغير الاتجاه (RTL) مع اللغة
-  document.dir = i18n.locale === "ar" ? "rtl" : "ltr";
-
-  // إعادة تحميل التصنيفات حسب اللغة الجديدة
+const handleLanguageChange = () => {
+  localStorage.setItem("lang", locale.value);
+  document.dir = locale.value === "ar" ? "rtl" : "ltr";
   store.loadCategories(t);
-}
+};
+
+// لو المستخدم رجع للموقع بلغة محفوظة قبل كدا
+onMounted(() => {
+  document.dir = locale.value === "ar" ? "rtl" : "ltr";
+});
 </script>
 
 <style lang="scss" scoped>

@@ -3,7 +3,7 @@
     <app-layout>
       <router-view /> <QuickView />
       <v-snackbar v-model="snackbar" location="left buttom" max-width="100">
-        {{ itemTitle }} Add to cart successfully
+        {{ itemTitle }} {{ $t("Cart.Add-successfully") }}
         <template v-slot:actions>
           <v-icon @click="snackbar = false">mdi-close</v-icon>
         </template>

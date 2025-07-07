@@ -253,7 +253,7 @@
             v-if="cartStore.cartItems.length"
             class="text-capitalize w-100 rounded-xl"
             style="border: 1px solid #a1a1a1"
-            @click="router.push({ name: 'cart_page' })"
+            @click="goToCartPage"
             >{{ $t("Cart.view-cart") }}</v-btn
           >
         </v-card-actions>
@@ -277,6 +277,19 @@ onMounted(() => {
   cartStore.getCartItems();
 });
 //functions
+
+function goToCartPage() {
+  drawer.value = false;
+  setTimeout(() => {
+    if (router.currentRoute.value.name !== "cart_page") {
+      router.push({ name: "cart_page" });
+    } else {
+      // إجبار إعادة تحميل الصفحة أو إعادة توجيه لنفسها
+      router.replace({ path: "/cart-page", query: { t: Date.now() } });
+    }
+  }, 300);
+}
+
 function closeDrawer() {
   drawer.value = false;
   router.push({ name: "home" });

@@ -114,12 +114,8 @@
 
               <v-card-actions class="d-flex justify-center">
                 <v-btn
-                  @click="
-                    router.push({
-                      name: 'product_details',
-                      params: { productId: product.id },
-                    })
-                  "
+                  v-if="product && product.id"
+                  @click="goToDetails(product)"
                   class="px-8 py-5 mb-5 text-capitalize d-flex justify-center align-center"
                   min-width="92"
                   variant="outlined"
@@ -169,6 +165,17 @@ watch(
     isLoading.value = false;
   }
 );
+function goToDetails(product) {
+  if (!product?.id) {
+    console.warn("Product ID not found");
+    return;
+  }
+
+  router.push({
+    name: "product_details",
+    params: { productId: product.id },
+  });
+}
 
 function handleImageClick(productId, originalThumbnail, newImage) {
   selectedImages[productId] = newImage;
